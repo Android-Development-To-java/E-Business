@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.e_business.utility.ui.AccountFragment;
 import com.example.e_business.utility.ui.HomeFragment;
+import com.example.e_business.utility.ui.UploadItemsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.account:
                         mySetFragment(new AccountFragment());
                         break;
+                    case R.id.upload:
+                        mySetFragment(new UploadItemsFragment());
+                        break;
+
 
                 }
 
