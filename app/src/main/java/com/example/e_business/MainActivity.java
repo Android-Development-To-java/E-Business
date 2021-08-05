@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.account:
                         mySetFragment(new AccountFragment());
+                        break;
 
                 }
 
