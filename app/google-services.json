@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "807989041683",
+    "project_id": "onlinemarketingapplicati-3a608",
+    "storage_bucket": "onlinemarketingapplicati-3a608.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807989041683:android:be0801e84ff92372053de6",
+        "android_client_info": {
+          "package_name": "com.anamul.onlinemarketingapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807989041683-necm34tk8hvoj0ruo55vsva5mrrtuqp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgit2qRMQFnknSxhxiDaOZhugm2YnVw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807989041683-necm34tk8hvoj0ruo55vsva5mrrtuqp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807989041683:android:8faadca3d0bc21ad053de6",
+        "android_client_info": {
+          "package_name": "com.example.e_business"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807989041683-necm34tk8hvoj0ruo55vsva5mrrtuqp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgit2qRMQFnknSxhxiDaOZhugm2YnVw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807989041683-necm34tk8hvoj0ruo55vsva5mrrtuqp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
