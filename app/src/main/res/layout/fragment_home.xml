@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".utility.ui.HomeFragment">
+    tools:context=".utility.ui.HomeFragment"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -43,6 +44,17 @@
             app:sliderStartAutoCycle="true" />
 
     </androidx.cardview.widget.CardView>
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_below="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2">
+
+        </GridView>
+
+
 
 
 
