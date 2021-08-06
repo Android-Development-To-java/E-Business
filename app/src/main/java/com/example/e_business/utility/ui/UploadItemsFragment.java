@@ -1,5 +1,6 @@
 package com.example.e_business.utility.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
 import com.example.e_business.R;
 
 
-public class UploadItemsFragment extends Fragment {
+public class UploadItemsFragment extends Fragment  implements View.OnClickListener {
 
     private ImageView imageViewProduct;
 
@@ -36,6 +40,8 @@ public class UploadItemsFragment extends Fragment {
 
         allFinding();
 
+        imageViewProduct.setOnClickListener(this);
+
         return viewU;
     }
 
@@ -48,4 +54,29 @@ public class UploadItemsFragment extends Fragment {
         pro_save_btn = viewU.findViewById(R.id.save_product_btn);
     }
 
+
+
+
+
+
+//    Image Selected New Method
+
+    ActivityResultLauncher <String> myImages = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri result) {
+                    if (result != null){
+                        imageViewProduct.setImageURI(result);
+                    }
+                }
+            });
+
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.product_img){
+            myImages.launch("image/*");
+        }
+
+    }
 }

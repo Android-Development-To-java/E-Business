@@ -45,12 +45,18 @@
 
     </androidx.cardview.widget.CardView>
 
+
+
         <GridView
             android:id="@+id/gridView"
             android:layout_below="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:numColumns="2">
+            android:numColumns="2"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            android:padding="6dp"
+            android:layout_margin="5dp">
 
         </GridView>
 

@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.e_business.utility.ui.AccountFragment;
+import com.example.e_business.utility.ui.FavoriteFragment;
 import com.example.e_business.utility.ui.HomeFragment;
+import com.example.e_business.utility.ui.SearchFragment;
 import com.example.e_business.utility.ui.UploadItemsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -45,11 +47,20 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home_id_item:
                         mySetFragment(new HomeFragment());
                         break;
-                    case R.id.account:
-                        mySetFragment(new AccountFragment());
+                    case R.id.favorite:
+                        mySetFragment(new FavoriteFragment());
                         break;
+
                     case R.id.upload:
                         mySetFragment(new UploadItemsFragment());
+                        break;
+
+                    case R.id.search:
+                        mySetFragment(new SearchFragment());
+                        break;
+
+                    case R.id.account:
+                        mySetFragment(new AccountFragment());
                         break;
 
 
