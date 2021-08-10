@@ -78,8 +78,8 @@ public class UploadItemsFragment extends Fragment implements View.OnClickListene
 
     private void allFinding() {
         imageViewProduct = viewU.findViewById(R.id.product_img);
-        image2 = viewU.findViewById(R.id.product_img2);
-        image3 = viewU.findViewById(R.id.product_img3);
+//        image2 = viewU.findViewById(R.id.product_img2);
+//        image3 = viewU.findViewById(R.id.product_img3);
         prd_name = viewU.findViewById(R.id.product_name);
         prd_price = viewU.findViewById(R.id.product_price);
         prd_details = viewU.findViewById(R.id.product_details);
