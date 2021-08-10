@@ -10,7 +10,7 @@ import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 
 import com.example.e_business.R;
-import com.example.e_business.utility.model.SlidingAdapter;
+import com.example.e_business.utility.module.SlidingAdapter;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;

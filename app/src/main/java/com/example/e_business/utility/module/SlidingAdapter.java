@@ -1,4 +1,4 @@
-package com.example.e_business.utility.model;
+package com.example.e_business.utility.module;
 
 import android.content.Context;
 import android.view.LayoutInflater;
