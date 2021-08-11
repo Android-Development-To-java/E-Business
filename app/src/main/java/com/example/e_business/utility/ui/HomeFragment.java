@@ -10,6 +10,7 @@ import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 
 import com.example.e_business.R;
+import com.example.e_business.utility.module.GridAdapter;
 import com.example.e_business.utility.module.SlidingAdapter;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -44,6 +45,7 @@ public class HomeFragment extends Fragment {
         View views = inflater.inflate(R.layout.fragment_home, container, false);
 
         sliderViewS = views.findViewById(R.id.image_slider);
+
         gridView = views.findViewById(R.id.gridView);
 
         SlidingAdapter mySliderAdapter = new SlidingAdapter(img,getContext());
@@ -57,6 +59,10 @@ public class HomeFragment extends Fragment {
         sliderViewS.setIndicatorUnselectedColor(Color.GRAY);
         sliderViewS.setScrollTimeInSec(4); //set scroll delay in seconds :
         sliderViewS.startAutoCycle();
+
+      //  GridAdapter gridAdapter = new GridAdapter();
+
+
 
 
 
