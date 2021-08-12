@@ -2,6 +2,7 @@ package com.example.e_business;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
@@ -25,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         this.getSupportActionBar().hide();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bottomNavigationView = findViewById(R.id.bottom_nav);
         frameLayout = findViewById(R.id.frame_layout);
 

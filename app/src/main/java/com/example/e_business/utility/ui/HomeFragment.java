@@ -1,16 +1,21 @@
 package com.example.e_business.utility.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.e_business.R;
 import com.example.e_business.utility.module.GridAdapter;
@@ -38,6 +43,8 @@ public class HomeFragment extends Fragment {
     private ProgressBar progressBar;
 
     DatabaseReference databaseReference;
+
+    private ImageButton imageButton1,imageButton2,imageButton3,imageButton4;
 
 //     int [] imgS = getResources().getIntArray(R.array.imgAll);
 
@@ -83,6 +90,10 @@ public class HomeFragment extends Fragment {
         sliderViewS.startAutoCycle();
 
 
+        imageButton2 = views.findViewById(R.id.favorite_items);
+
+
+
 
 
 
@@ -113,7 +124,6 @@ public class HomeFragment extends Fragment {
 
                 progressBar.setVisibility(View.INVISIBLE);
 
-                Toast.makeText(getContext(), "UPLOADING......", Toast.LENGTH_LONG).show();
 
 
 
