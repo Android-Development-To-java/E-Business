@@ -5,25 +5,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.e_business.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
+import com.squareup.picasso.Picasso;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class SlidingAdapter extends SliderViewAdapter<SlidingAdapter.HolderV> {
 
-    int[] imagesAll;
-    Context context;
+
+    Context contexts;
+
+    int [] images;
 
 
     public SlidingAdapter(Context context) {
-        this.context = context;
+        this.contexts = context;
     }
 
 
-    public SlidingAdapter(int[] image, Context context) {
-        this.imagesAll = image;
-        this.context = context;
+    public SlidingAdapter(Context context, int [] imageAll) {
+
+        this.contexts = context;
+        this.images = imageAll;
+
     }
 
 
@@ -38,18 +45,16 @@ public class SlidingAdapter extends SliderViewAdapter<SlidingAdapter.HolderV> {
     @Override
     public void onBindViewHolder(HolderV viewHolder, int position) {
 
-        if (viewHolder != null){
-            viewHolder.imageView.setImageResource((imagesAll[position]));
-        }else {
-            Toast.makeText(context, "SomeThing Happened!!!", Toast.LENGTH_SHORT).show();
-        }
-
-
+       Picasso.get()
+               .load(images[position])
+               .fit()
+               .centerCrop()
+               .into(viewHolder.imageView);
     }
 
     @Override
     public int getCount() {
-        return imagesAll.length;
+        return images.length;
     }
 
     public class HolderV extends SliderViewAdapter.ViewHolder {

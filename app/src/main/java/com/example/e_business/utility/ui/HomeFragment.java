@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment {
     SliderView sliderViewS;
 
     List<ItemsUpload> uploadList;
+    private ProgressBar progressBar;
 
     DatabaseReference databaseReference;
 
@@ -57,13 +59,15 @@ public class HomeFragment extends Fragment {
 
         gridViews = views.findViewById(R.id.grid_view);
 
-        SlidingAdapter mySliderAdapter = new SlidingAdapter(img, getContext());
+        SlidingAdapter mySliderAdapter = new SlidingAdapter( getContext(),img);
 
         sliderViewS.setSliderAdapter(mySliderAdapter);
 
         uploadList = new ArrayList<>();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload");
+
+        progressBar = views.findViewById(R.id.progress_bars);
 
 
         fireBaseDataReceive();
@@ -75,7 +79,7 @@ public class HomeFragment extends Fragment {
         sliderViewS.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderViewS.setIndicatorSelectedColor(Color.WHITE);
         sliderViewS.setIndicatorUnselectedColor(Color.GRAY);
-        sliderViewS.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderViewS.setScrollTimeInSec(2); //set scroll delay in seconds :
         sliderViewS.startAutoCycle();
 
 
@@ -107,10 +111,17 @@ public class HomeFragment extends Fragment {
                 GridAdapter gridAdapter = new GridAdapter(getContext(),uploadList);
                 gridViews.setAdapter(gridAdapter);
 
+                progressBar.setVisibility(View.INVISIBLE);
+
+                Toast.makeText(getContext(), "UPLOADING......", Toast.LENGTH_LONG).show();
+
+
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                progressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(getContext(), "SomeThing is wrong !!!" + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

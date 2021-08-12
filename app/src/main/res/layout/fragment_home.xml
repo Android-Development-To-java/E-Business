@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="ONLINE"
+        app:title="HOME"
         android:id="@+id/tool_bar"
         app:titleTextColor="@color/white"
         android:background="@color/teal_700"/>
@@ -28,7 +28,7 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="140dp"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
@@ -46,6 +46,25 @@
     </androidx.cardview.widget.CardView>
 
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_bars"
+        android:visibility="visible"
+        />
+
 
         <GridView
             android:id="@+id/grid_view"
@@ -53,10 +72,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
-            android:horizontalSpacing="5dp"
-            android:verticalSpacing="5dp"
-            android:padding="6dp"
-            android:layout_margin="5dp">
+            android:horizontalSpacing="8dp"
+            android:verticalSpacing="7dp"
+            android:padding="5dp"
+            android:background="#EEE8E8"
+            android:layout_margin="9dp">
+
+
+
+
+
+
 
         </GridView>
 
