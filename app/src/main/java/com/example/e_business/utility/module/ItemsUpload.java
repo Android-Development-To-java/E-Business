@@ -1,17 +1,22 @@
 package com.example.e_business.utility.module;
 
+import android.content.Context;
+
 public class ItemsUpload {
 
     String imageUri;
     String product_nm;
     String product_pr;
     String product_dt;
+    Context contexts;
 
     public ItemsUpload(){
 
     }
 
-    public ItemsUpload(String imageUri, String product_nm, String product_pr, String product_dt) {
+
+    public ItemsUpload(Context context, String imageUri, String product_nm, String product_pr, String product_dt) {
+        this.contexts = context;
         this.imageUri = imageUri;
         this.product_nm = product_nm;
         this.product_pr = product_pr;
@@ -19,6 +24,7 @@ public class ItemsUpload {
     }
 
     public String getImageUri() {
+
         return imageUri;
     }
 

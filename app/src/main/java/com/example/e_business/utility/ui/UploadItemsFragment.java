@@ -24,6 +24,7 @@ import com.example.e_business.R;
 import com.example.e_business.utility.module.ItemsUpload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -31,6 +32,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 
 public class UploadItemsFragment extends Fragment implements View.OnClickListener {
@@ -66,20 +68,17 @@ public class UploadItemsFragment extends Fragment implements View.OnClickListene
         allFinding();
 
         imageViewProduct.setOnClickListener(this);
-        image2.setOnClickListener(this);
-        image3.setOnClickListener(this);
         pro_save_btn.setOnClickListener(this);
 
-        storageReference = FirebaseStorage.getInstance().getReference("uploads");
-        databaseReference = FirebaseDatabase.getInstance().getReference("uploadsItems");
+        storageReference = FirebaseStorage.getInstance().getReference("Upload");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Upload");
 
         return viewU;
     }
 
     private void allFinding() {
         imageViewProduct = viewU.findViewById(R.id.product_img);
-//        image2 = viewU.findViewById(R.id.product_img2);
-//        image3 = viewU.findViewById(R.id.product_img3);
+
         prd_name = viewU.findViewById(R.id.product_name);
         prd_price = viewU.findViewById(R.id.product_price);
         prd_details = viewU.findViewById(R.id.product_details);
@@ -95,14 +94,18 @@ public class UploadItemsFragment extends Fragment implements View.OnClickListene
             new ActivityResultCallback<Uri>() {
                 @Override
                 public void onActivityResult(Uri result) {
-                    imageUri = result;
+
                     if (result != null) {
-                        imageViewProduct.setImageURI(result);
+                        Picasso.get()
+                                .load(result)
+                                .fit()
+                                .centerCrop()
+                                .into(imageViewProduct);
+
+                        imageUri = result;
                     }
 
-//                    if (image2 != null){
-//                        image2.setImageURI(result);
-//                    }
+
 
 
                 }
@@ -116,12 +119,7 @@ public class UploadItemsFragment extends Fragment implements View.OnClickListene
             case R.id.product_img:
                 myImages.launch("image/*");
                 break;
-//                case R.id.product_img2:
-//                myImages.launch("image/*");
-//                break;
-//                case R.id.product_img3:
-//                myImages.launch("image/*");
-//                break;
+
 
             case R.id.save_product_btn:
 
@@ -187,7 +185,13 @@ public class UploadItemsFragment extends Fragment implements View.OnClickListene
                                 }
                             }, 500);
 
-                            ItemsUpload itemsUpload = new ItemsUpload(taskSnapshot.getUploadSessionUri().toString(), pro_name, pro_price, pro_details);
+
+                            Task <Uri> imgUri =taskSnapshot.getStorage().getDownloadUrl();
+                            while (!imgUri.isSuccessful());
+                            Uri imageU = imgUri.getResult();
+
+
+                            ItemsUpload itemsUpload = new ItemsUpload( getContext(),imageU.toString(), pro_name, pro_price, pro_details);
                             String uploadItems = databaseReference.push().getKey();
                             databaseReference.child(uploadItems).setValue(itemsUpload);
 

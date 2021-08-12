@@ -2,6 +2,7 @@ package com.example.e_business;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -22,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
 
+        this.getSupportActionBar().hide();
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
         frameLayout = findViewById(R.id.frame_layout);
