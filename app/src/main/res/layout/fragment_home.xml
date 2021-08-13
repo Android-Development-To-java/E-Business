@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".utility.ui.HomeFragment"
-    android:background="@drawable/linear_background"
-    android:orientation="vertical"
-    android:id="@+id/mains">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -15,18 +13,16 @@
         app:title="HOME"
         android:id="@+id/tool_bar"
         app:titleTextColor="@color/white"
-        android:background="@android:color/transparent"
-        />
+        android:background="@color/teal_700"/>
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/slider_view"
+        android:id="@+id/slider"
         app:cardCornerRadius="8dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tool_bar"
-
         >
 
         <com.smarteist.autoimageslider.SliderView
@@ -48,16 +44,16 @@
             app:sliderStartAutoCycle="true" />
 
     </androidx.cardview.widget.CardView>
-    
 
 
-         <include
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_below="@+id/slider_view"
-             android:id="@+id/some_items_viw"
-             layout="@layout/some_items"
-             android:gravity = "center"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
 
 
@@ -72,17 +68,22 @@
 
         <GridView
             android:id="@+id/grid_view"
-            android:layout_below="@id/some_items_viw"
+            android:layout_below="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
             android:horizontalSpacing="8dp"
             android:verticalSpacing="7dp"
             android:padding="5dp"
-            android:background="@android:color/transparent"
-            android:layout_margin="8dp">
+            android:background="#EEE8E8"
+            android:layout_margin="9dp">
 
-            
+
+
+
+
+
+
         </GridView>
 
 

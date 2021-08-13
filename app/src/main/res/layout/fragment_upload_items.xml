@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/okpic"
     tools:context=".utility.ui.UploadItemsFragment">
 
 
@@ -14,7 +15,7 @@
         android:gravity="center">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
@@ -28,7 +29,9 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="4dp"
-                android:scaleType="fitXY" />
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_icon" />
 
         </androidx.cardview.widget.CardView>
 
@@ -84,7 +87,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Name :"
-            android:textSize="20sp" />
+            android:fontFamily="@font/almendra_sc"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <EditText
             android:id="@+id/product_name"
@@ -103,7 +108,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Price :"
-            android:textSize="20sp" />
+            android:fontFamily="@font/almendra_sc"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
         <EditText
             android:id="@+id/product_price"
@@ -121,8 +128,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/almendra_sc"
             android:text="Product Details :"
-            android:textSize="20sp" />
+            android:textSize="22sp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/product_details"
@@ -131,12 +140,6 @@
 
     </LinearLayout>
 
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:padding="5dp" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -151,6 +154,7 @@
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
+
         android:text="SAVE" />
 
 
