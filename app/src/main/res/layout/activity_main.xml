@@ -22,10 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemIconSize="20dp"
-        app:itemIconTint="@color/teal_700"
+        app:itemIconTint="#F60E0E"
         app:itemRippleColor="#E01A59"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_nav" />
+        app:menu="@menu/bottom_nav"
+        app:itemBackground="@android:color/transparent"/>
 
 
 </RelativeLayout>

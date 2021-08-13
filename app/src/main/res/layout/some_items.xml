@@ -16,6 +16,7 @@
 
 
         <ImageButton
+            android:id="@+id/category_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -28,7 +29,7 @@
             android:text="categories"
             android:textAllCaps="true"
             android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold|italic"/>
 
 
@@ -57,7 +58,7 @@
             android:text="favorite"
             android:textAllCaps="true"
             android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold|italic"/>
 
 
@@ -73,6 +74,7 @@
 
 
         <ImageButton
+            android:id="@+id/gift_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -85,7 +87,7 @@
             android:text="gift"
             android:textAllCaps="true"
             android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold|italic"/>
 
 
@@ -101,6 +103,7 @@
 
 
         <ImageButton
+            android:id="@+id/top_selling_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -113,7 +116,7 @@
             android:text="top selling"
             android:textAllCaps="true"
             android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold|italic"
             android:gravity="center"
             />
