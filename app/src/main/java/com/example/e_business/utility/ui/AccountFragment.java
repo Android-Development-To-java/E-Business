@@ -1,24 +1,16 @@
 package com.example.e_business.utility.ui;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.e_business.R;
-import com.example.e_business.utility.module.ListViewItems;
 
 
 public class AccountFragment extends Fragment {
-
-
-
-    String [] allList;
-    public ListView listView;
 
 
     public AccountFragment() {
@@ -32,15 +24,6 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View viewS = inflater.inflate(R.layout.fragment_account, container, false);
-
-        listView = viewS.findViewById(R.id.list_view);
-
-        allList = getResources().getStringArray(R.array.all_setting);
-
-        ListViewItems listViewItems = new ListViewItems(allList,getContext());
-        listView.setHasTransientState(true);
-        listView.setAdapter(listViewItems);
-
 
 
         return viewS;
