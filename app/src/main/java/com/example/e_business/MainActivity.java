@@ -2,7 +2,10 @@ package com.example.e_business;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
@@ -14,6 +17,8 @@ import com.example.e_business.utility.ui.FavoriteFragment;
 import com.example.e_business.utility.ui.HomeFragment;
 import com.example.e_business.utility.ui.SearchFragment;
 import com.example.e_business.utility.ui.UploadItemsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -24,11 +29,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        this.getSupportActionBar().hide();
-
+//        this.getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bottomNavigationView = findViewById(R.id.bottom_nav);
         frameLayout = findViewById(R.id.frame_layout);
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void bottomNav() {
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

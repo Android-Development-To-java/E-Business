@@ -1,16 +1,21 @@
 package com.example.e_business.utility.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.e_business.R;
 import com.example.e_business.utility.module.GridAdapter;
@@ -29,15 +34,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     GridView gridViews;
     SliderView sliderViewS;
 
     List<ItemsUpload> uploadList;
-    private ProgressBar progressBar;
+
 
     DatabaseReference databaseReference;
+
+    public ImageButton imageButton1,imageButton2,imageButton3,imageButton4;
 
 //     int [] imgS = getResources().getIntArray(R.array.imgAll);
 
@@ -67,7 +74,7 @@ public class HomeFragment extends Fragment {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload");
 
-        progressBar = views.findViewById(R.id.progress_bars);
+
 
 
         fireBaseDataReceive();
@@ -75,7 +82,7 @@ public class HomeFragment extends Fragment {
 
 //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderViewS.setIndicatorAnimation(IndicatorAnimationType.SWAP);
-        sliderViewS.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
+        sliderViewS.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
         sliderViewS.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderViewS.setIndicatorSelectedColor(Color.WHITE);
         sliderViewS.setIndicatorUnselectedColor(Color.GRAY);
@@ -83,11 +90,29 @@ public class HomeFragment extends Fragment {
         sliderViewS.startAutoCycle();
 
 
+        imageButton1 = views.findViewById(R.id.category_items);
+        imageButton2 = views.findViewById(R.id.favorite_items);
+        imageButton3 = views.findViewById(R.id.gift_items);
+        imageButton4 = views.findViewById(R.id.top_selling_items);
+
+
+        imageButton1.setOnClickListener(this);
+        imageButton2.setOnClickListener(this);
+        imageButton3.setOnClickListener(this);
+        imageButton4.setOnClickListener(this);
+
+
+
+
 
 
 
         return views;
     }
+
+
+
+
 
 
 
@@ -111,9 +136,7 @@ public class HomeFragment extends Fragment {
                 GridAdapter gridAdapter = new GridAdapter(getContext(),uploadList);
                 gridViews.setAdapter(gridAdapter);
 
-                progressBar.setVisibility(View.INVISIBLE);
 
-                Toast.makeText(getContext(), "UPLOADING......", Toast.LENGTH_LONG).show();
 
 
 
@@ -121,8 +144,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                progressBar.setVisibility(View.INVISIBLE);
-                Toast.makeText(getContext(), "SomeThing is wrong !!!" + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "SomeThing is wrong !!!" + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -132,4 +154,27 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.category_items :
+                loadingFT(new CategoryFragment());
+                break;
+
+            case R.id.favorite_items:
+                loadingFT(new FavoriteFragment());
+                break;
+
+        }
+
+    }
+
+    public void loadingFT(Fragment fragment){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 }
