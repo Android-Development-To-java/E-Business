@@ -37,6 +37,7 @@ public class SlidingAdapter extends SliderViewAdapter<SlidingAdapter.HolderV> {
     @Override
     public HolderV onCreateViewHolder(ViewGroup parent) {
 
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_view_itrems, parent, false);
 
         return new HolderV(view);
@@ -45,11 +46,15 @@ public class SlidingAdapter extends SliderViewAdapter<SlidingAdapter.HolderV> {
     @Override
     public void onBindViewHolder(HolderV viewHolder, int position) {
 
-       Picasso.get()
-               .load(images[position])
-               .fit()
-               .centerCrop()
-               .into(viewHolder.imageView);
+        if (viewHolder != null){
+            Picasso.get()
+                    .load(images[position])
+                    .fit()
+                    .centerCrop()
+                    .into(viewHolder.imageView);
+        }
+
+
     }
 
     @Override

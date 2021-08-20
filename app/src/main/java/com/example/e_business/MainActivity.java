@@ -22,6 +22,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FrameLayout frameLayout;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        this.getSupportActionBar().hide();
+        Objects.requireNonNull(this.getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_nav);
