@@ -46,9 +46,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     public ImageButton imageButton1,imageButton2,imageButton3,imageButton4;
 
-//     int [] imgS = getResources().getIntArray(R.array.imgAll);
 
-    int[] img = {R.drawable.image2, R.drawable.image1, R.drawable.image2, R.drawable.image1};
+
+    int[] img  = { R.drawable.image1,R.drawable.image6,R.drawable.image4,
+            R.drawable.image3,R.drawable.image2,R.drawable.image8,
+            R.drawable.image7
+
+    };
 
     public HomeFragment() {
         // Required empty public constructor
@@ -66,6 +70,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         gridViews = views.findViewById(R.id.grid_view);
 
+
+
         SlidingAdapter mySliderAdapter = new SlidingAdapter( getContext(),img);
 
         sliderViewS.setSliderAdapter(mySliderAdapter);
@@ -82,7 +88,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderViewS.setIndicatorAnimation(IndicatorAnimationType.SWAP);
-        sliderViewS.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
+        sliderViewS.setSliderTransformAnimation(SliderAnimations.CUBEINDEPTHTRANSFORMATION);
         sliderViewS.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderViewS.setIndicatorSelectedColor(Color.WHITE);
         sliderViewS.setIndicatorUnselectedColor(Color.GRAY);
